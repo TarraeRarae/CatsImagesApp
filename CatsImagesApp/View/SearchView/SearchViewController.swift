@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
         if let viewModel = viewModel {
             viewModel.tableView = searchTableView
             viewModel.refreshData(for: ["beng"])
-//            searchTableView.reloadData()
         }
     }
 
