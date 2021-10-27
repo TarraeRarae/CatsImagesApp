@@ -21,18 +21,32 @@ class CatsTableViewCellController: UITableViewCell {
     var viewModel: TableViewCellViewModelProtocol? {
         didSet {
             guard let viewModel = viewModel else { return }
-            catImageView.image = viewModel.image
+            if catImageView?.image == nil {
+                catImageView?.image = viewModel.image
+            }
+//            let task = URLSession.shared.dataTask(with: viewModel.cellData!.url) { (data, _, error) in
+//                guard error == nil,
+//                            let dataActual = data,
+//                            let image = UIImage(data: dataActual)
+//                else {
+//                        return
+//                }
+//                DispatchQueue.main.async {
+//                    self.catImageView.image = image
+//                }
+//            }
+//            task.resume()
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear
-        catImageView.backgroundColor = .clear
+        catImageView?.backgroundColor = .clear
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        catImageView.image = nil
+        catImageView?.image = nil
     }
 }

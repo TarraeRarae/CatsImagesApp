@@ -15,10 +15,10 @@ class SearchViewViewModel: TableViewViewModelProtocol {
 
     init() {
         networkManager.delegate = self
-        refreshData(for: ["beng"])
     }
 
     func numberOfRows() -> Int {
+        print(searchTableContent.count)
         return searchTableContent.count
     }
 
@@ -29,7 +29,11 @@ class SearchViewViewModel: TableViewViewModelProtocol {
     }
 
     func refreshData(for breeds: [String]) {
-        networkManager.getImageWithFilter("beng")
+        networkManager.getImageWithFilter(breeds[0])
+    }
+
+    func cancelDataTasks() {
+        networkManager.cancelAllDataTasks()
     }
 }
 

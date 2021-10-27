@@ -14,4 +14,5 @@ protocol TableViewViewModelProtocol: AnyObject {
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelProtocol?
     func refreshData(for breeds: [String])
+    func cancelDataTasks()
 }

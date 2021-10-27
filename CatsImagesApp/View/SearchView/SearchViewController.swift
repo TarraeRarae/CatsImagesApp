@@ -15,19 +15,22 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        viewModel = SearchViewViewModel()
+        navigationItem.title = "Search"
         setupTableView()
+        viewModel = SearchViewViewModel()
         if let viewModel = viewModel {
             viewModel.tableView = searchTableView
             viewModel.refreshData(for: ["beng"])
         }
     }
 
+    deinit {
+        viewModel?.cancelDataTasks()
+    }
+
     private func setupTableView() {
-        searchTableView = UITableView(frame: view.frame, style: .plain)
+        searchTableView = UITableView(frame: view.bounds, style: .plain)
         searchTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        searchTableView.backgroundColor = .clear
-        searchTableView.isScrollEnabled = true
         searchTableView.register(UINib(nibName: CatsTableViewCellController.Constant.nibName, bundle: nil), forCellReuseIdentifier: CatsTableViewCellController.Constant.cellID)
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -43,13 +46,16 @@ extension SearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CatsTableViewCellController.Constant.cellID) as? CatsTableViewCellController else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CatsTableViewCellController.Constant.cellID, for: indexPath) as? CatsTableViewCellController else { fatalError() }
         cell.viewModel = viewModel?.cellViewModel(forIndexPath: indexPath)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let viewModel = viewModel else { return }
+        let singleCatPhotoViewController = SingleCatPhotoViewController(cellViewModel:  viewModel.cellViewModel(forIndexPath: indexPath))
+        show(singleCatPhotoViewController, sender: nil)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

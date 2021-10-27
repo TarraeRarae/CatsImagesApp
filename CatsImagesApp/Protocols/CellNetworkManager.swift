@@ -9,6 +9,5 @@ import UIKit
 
 protocol CellNetworkManager {
 
-    var imageByURL: UIImage? { get }
-    func getImageByURL(for url: URL)
+    func getImageByURL(url: URL, handler: @escaping (UIImage) -> Void)
 }

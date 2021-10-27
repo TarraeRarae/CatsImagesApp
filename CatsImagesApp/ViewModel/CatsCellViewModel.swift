@@ -11,11 +11,15 @@ class CatsCellViewModel: TableViewCellViewModelProtocol {
 
     var cellData: CatsPhotosData?
     var networkManager: CellNetworkManager?
+    private var storedImage: UIImage?
 
     var image: UIImage? {
-        guard let cellData = cellData, let networkManager = networkManager else { return nil }
-        networkManager.getImageByURL(for: cellData.url)
-        return networkManager.imageByURL
+        if let cellData = cellData {
+            networkManager?.getImageByURL(url: cellData.url) { image in
+                    print(image.size.width)
+            }
+        }
+        return storedImage
     }
 
     init(for catsPhotosData: CatsPhotosData) {

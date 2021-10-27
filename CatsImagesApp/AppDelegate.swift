@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize()
         }
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SearchViewController()
+        window?.rootViewController = UINavigationController(rootViewController: SearchViewController())
         window?.makeKeyAndVisible()
         return true
     }
