@@ -37,6 +37,7 @@ class SingleCatPhotoView: UIView {
     }
 
     private func setupImageView(multiplier: CGFloat, image: UIImage) {
+        catImageView.contentMode = .scaleAspectFit
         catImageView.image = image
         scrollView.addSubview(catImageView)
         catImageView.translatesAutoresizingMaskIntoConstraints = false
