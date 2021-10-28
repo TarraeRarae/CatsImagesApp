@@ -95,6 +95,7 @@ class SingleCatPhotoView: UIView {
 }
 
 extension SingleCatPhotoView {
+
     func round(_ value: Double, toNearest: Double) -> Double {
         return UIKit.round(value / toNearest) * toNearest
     }
