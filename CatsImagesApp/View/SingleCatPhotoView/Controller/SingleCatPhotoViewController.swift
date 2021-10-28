@@ -33,6 +33,12 @@ class SingleCatPhotoViewController: UIViewController {
         getImage()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let singleCatPhotoView = singleCatPhotoView {
+            singleCatPhotoView.updateScrollViewContentSize()
+        }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,7 +56,7 @@ class SingleCatPhotoViewController: UIViewController {
     func setupView(image: UIImage?) {
         guard let cellData = cellData else { return }
         let multiplier = CGFloat(cellData.height) / CGFloat(cellData.width)
-        singleCatPhotoView = SingleCatPhotoView(frame: self.view.frame, image: image, multiplier: multiplier)
+        singleCatPhotoView = SingleCatPhotoView(frame: self.view.frame, image: image, multiplier: multiplier, breed: cellData.breed)
         if let singleCatPhotoView = singleCatPhotoView {
             self.view.addSubview(singleCatPhotoView)
         }
