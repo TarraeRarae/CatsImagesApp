@@ -14,7 +14,8 @@ class NetworkManager {
 		static let keyAPI: String = "a02aa90b-4743-4822-a934-85f4d3d74de5"
 	}
 
-	weak var delegate: NetworkCatsManagerDelegate?
+    weak var delegate: NetworkCatsManagerDelegate?
+    var onComplition: ((UIImage?) -> Void)?
     private var tasks: [URLSessionDataTask] = []
 
 	func getImageWithFilter(_ breed: String) {
@@ -56,11 +57,13 @@ class NetworkManager {
 
 extension NetworkManager: CellNetworkManager {
 
-    func getImageByURL(url: URL, handler: @escaping (UIImage) -> Void) {
+    func getImageByURL(url: URL) {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard error == nil, let dataActual = data, let image = UIImage(data: dataActual) else { return }
             DispatchQueue.main.sync {
-                handler(image)
+                if let onComplition = self.onComplition {
+                    onComplition(image)
+                }
             }
         }
         tasks.append(task)
