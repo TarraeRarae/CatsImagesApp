@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CellNetworkManager {
+protocol NetworkManagerProtocol {
 
     var onComplition: ((UIImage?) -> Void)? { get set }
     func getImageByURL(url: URL)

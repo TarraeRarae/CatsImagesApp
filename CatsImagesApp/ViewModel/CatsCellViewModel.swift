@@ -10,7 +10,7 @@ import UIKit
 class CatsCellViewModel: TableViewCellViewModelProtocol {
 
     var cellData: CatsPhotosData?
-    var networkManager: CellNetworkManager?
+    var networkManager: NetworkManagerProtocol?
     var complition: ((UIImage?) -> Void)?
 
     init(for catsPhotosData: CatsPhotosData) {

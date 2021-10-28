@@ -10,7 +10,7 @@ import UIKit
 protocol TableViewCellViewModelProtocol: AnyObject {
 
     var cellData: CatsPhotosData? { get }
-    var networkManager: CellNetworkManager? { get set }
+    var networkManager: NetworkManagerProtocol? { get set }
     var complition: ((UIImage?) -> Void)? { get set }
     func getImage()
 }

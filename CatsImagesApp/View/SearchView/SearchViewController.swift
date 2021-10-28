@@ -53,8 +53,9 @@ extension SearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let viewModel = viewModel else { return }
-        let singleCatPhotoViewController = SingleCatPhotoViewController(cellViewModel:  viewModel.cellViewModel(forIndexPath: indexPath))
+        guard let viewModel = viewModel else { return}
+        let networkManager: NetworkManagerProtocol? = viewModel.networkManager as? NetworkManagerProtocol
+        let singleCatPhotoViewController = SingleCatPhotoViewController(cellViewModel: viewModel.cellViewModel(forIndexPath: indexPath), networkManager: networkManager)
         show(singleCatPhotoViewController, sender: nil)
     }
 

@@ -55,7 +55,7 @@ class NetworkManager {
     }
 }
 
-extension NetworkManager: CellNetworkManager {
+extension NetworkManager: NetworkManagerProtocol {
 
     func getImageByURL(url: URL) {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in

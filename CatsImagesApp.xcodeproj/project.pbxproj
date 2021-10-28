@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2A47C1272B0B1300F9E3DA /* SingleCatPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A47C0272B0B1300F9E3DA /* SingleCatPhotoView.swift */; };
 		1FDC00762726DC1300CD97A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00752726DC1300CD97A0 /* AppDelegate.swift */; };
 		1FDC007A2726DC1300CD97A0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00792726DC1300CD97A0 /* SearchViewController.swift */; };
 		1FDC007F2726DC1600CD97A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDC007E2726DC1600CD97A0 /* Assets.xcassets */; };
@@ -22,11 +23,12 @@
 		1FDC00A12726EA2300CD97A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00A02726EA2300CD97A0 /* NetworkManager.swift */; };
 		1FDC00A42726EAEB00CD97A0 /* IsFirstLaunchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00A32726EAEB00CD97A0 /* IsFirstLaunchExtension.swift */; };
 		1FDC00A62726EC1900CD97A0 /* NetworkCatsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00A52726EC1900CD97A0 /* NetworkCatsManagerDelegate.swift */; };
-		1FDC00A82726FCAB00CD97A0 /* CellNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00A72726FCAB00CD97A0 /* CellNetworkManager.swift */; };
+		1FDC00A82726FCAB00CD97A0 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC00A72726FCAB00CD97A0 /* NetworkManagerProtocol.swift */; };
 		1FDCAD2327284FE500DB8BDF /* SingleCatPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDCAD2227284FE500DB8BDF /* SingleCatPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F2A47C0272B0B1300F9E3DA /* SingleCatPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCatPhotoView.swift; sourceTree = "<group>"; };
 		1FDC00722726DC1300CD97A0 /* CatsImagesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsImagesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDC00752726DC1300CD97A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FDC00792726DC1300CD97A0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		1FDC00A02726EA2300CD97A0 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1FDC00A32726EAEB00CD97A0 /* IsFirstLaunchExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsFirstLaunchExtension.swift; sourceTree = "<group>"; };
 		1FDC00A52726EC1900CD97A0 /* NetworkCatsManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCatsManagerDelegate.swift; sourceTree = "<group>"; };
-		1FDC00A72726FCAB00CD97A0 /* CellNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellNetworkManager.swift; sourceTree = "<group>"; };
+		1FDC00A72726FCAB00CD97A0 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		1FDCAD2227284FE500DB8BDF /* SingleCatPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCatPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2A47BC272B0A5200F9E3DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FDC008D2726DE2D00CD97A0 /* CatsTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F2A47BD272B0A5800F9E3DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1FDC008A2726DDFB00CD97A0 /* CatsTableViewCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1F2A47BE272B0AFB00F9E3DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F2A47C0272B0B1300F9E3DA /* SingleCatPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F2A47BF272B0B0000F9E3DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1FDCAD2227284FE500DB8BDF /* SingleCatPhotoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1FDC00692726DC1300CD97A0 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +128,8 @@
 		1FDC008C2726DE0000CD97A0 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				1FDC008A2726DDFB00CD97A0 /* CatsTableViewCellController.swift */,
-				1FDC008D2726DE2D00CD97A0 /* CatsTableViewCell.xib */,
+				1F2A47BD272B0A5800F9E3DA /* Controller */,
+				1F2A47BC272B0A5200F9E3DA /* View */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -133,7 +167,7 @@
 				1FDC00952726E34600CD97A0 /* TableViewViewModelProtocol.swift */,
 				1FDC00972726E39600CD97A0 /* TableViewCellViewModelProtocol.swift */,
 				1FDC00A52726EC1900CD97A0 /* NetworkCatsManagerDelegate.swift */,
-				1FDC00A72726FCAB00CD97A0 /* CellNetworkManager.swift */,
+				1FDC00A72726FCAB00CD97A0 /* NetworkManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -159,7 +193,8 @@
 		1FDCAD2127284FCE00DB8BDF /* SingleCatPhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				1FDCAD2227284FE500DB8BDF /* SingleCatPhotoViewController.swift */,
+				1F2A47BF272B0B0000F9E3DA /* Controller */,
+				1F2A47BE272B0AFB00F9E3DA /* View */,
 			);
 			path = SingleCatPhotoView;
 			sourceTree = "<group>";
@@ -259,7 +294,7 @@
 				1FDC007A2726DC1300CD97A0 /* SearchViewController.swift in Sources */,
 				1FDC00A42726EAEB00CD97A0 /* IsFirstLaunchExtension.swift in Sources */,
 				1FDC009D2726E3CD00CD97A0 /* CatsPhotosJSONData.swift in Sources */,
-				1FDC00A82726FCAB00CD97A0 /* CellNetworkManager.swift in Sources */,
+				1FDC00A82726FCAB00CD97A0 /* NetworkManagerProtocol.swift in Sources */,
 				1FDCAD2327284FE500DB8BDF /* SingleCatPhotoViewController.swift in Sources */,
 				1FDC00A12726EA2300CD97A0 /* NetworkManager.swift in Sources */,
 				1FDC00942726E2F900CD97A0 /* CatsCellViewModel.swift in Sources */,
@@ -270,6 +305,7 @@
 				1FDC008B2726DDFB00CD97A0 /* CatsTableViewCellController.swift in Sources */,
 				1FDC00982726E39600CD97A0 /* TableViewCellViewModelProtocol.swift in Sources */,
 				1FDC00962726E34600CD97A0 /* TableViewViewModelProtocol.swift in Sources */,
+				1F2A47C1272B0B1300F9E3DA /* SingleCatPhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
